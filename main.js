@@ -1,4 +1,5 @@
 const express = require('express');
+const os = require('os');
 
 const config = require('./config');
 
@@ -19,7 +20,12 @@ server.use('/public', express.static('public'));
 
 server.get('/', (request, response) => {
     response.render('index', {
-        username: 'Slava'
+        username: os.userInfo().username,
+        os: {
+            hostname: os.hostname(),
+            platform: os.platform(),
+            release: os.release()
+        }
     });
 });
 

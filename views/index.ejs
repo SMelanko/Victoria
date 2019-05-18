@@ -6,7 +6,10 @@
         <link rel="stylesheet" href="public/css/footer.css">
     </head>
     <body>
-        <h1>Hello <%= username %></h1>
+        <h1>Hi <%= username %></h1>
+        <h2>Hostname: <%= os.hostname %></h2>
+        <h2>Platform: <%= os.platform %></h2>
+        <h2>Release: <%= os.release %></h2>
         <footer>
             <% include blocks/footer %>
         </footer>
