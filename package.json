@@ -1,0 +1,28 @@
+{
+  "name": "victoria",
+  "version": "1.0.0",
+  "description": "test project",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SMelanko/Victoria.git"
+  },
+  "keywords": [
+    "node",
+    "js",
+    "server",
+    "test"
+  ],
+  "author": "slava melanko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SMelanko/Victoria/issues"
+  },
+  "homepage": "https://github.com/SMelanko/Victoria#readme",
+  "dependencies": {
+    "express": "^4.17.0"
+  }
+}
