@@ -4,6 +4,8 @@ const config = require('./config');
 
 let server = express();
 
+server.set('view engine', 'ejs');
+
 let requestLogger = function(request, response, next) {
     console.log(`
         URL: ${request.url}
@@ -13,13 +15,16 @@ let requestLogger = function(request, response, next) {
 };
 
 server.use(requestLogger);
+server.use('/public', express.static('public'));
 
-server.get('/', function(request, response) {
-    response.send('Hello World!');
+server.get('/', (request, response) => {
+    response.render('index', {
+        username: 'Slava'
+    });
 });
 
 const conf = config.readConfig();
 
-server.listen(conf.port, conf.host, function () {
-    console.log(`Server has been launched on ${conf.host}:${conf.port}...`);
+server.listen(conf.port, conf.host, () => {
+    console.log(`Server has been launched on http://${conf.host}:${conf.port}`);
 });
