@@ -3,34 +3,34 @@ const os = require('os');
 
 const config = require('./config');
 
-let server = express();
+const server = express();
 
 server.set('view engine', 'ejs');
 
-let requestLogger = function(request, response, next) {
-    console.log(`
-        URL: ${request.url}
-        Method: ${request.method}
+function requestLogger(request, response, next) {
+  console.log(`
+      URL: ${request.url}
+      Method: ${request.method}
     `);
-    next();
-};
+  next();
+}
 
 server.use(requestLogger);
 server.use('/public', express.static('public'));
 
 server.get('/', (request, response) => {
-    response.render('index', {
-        username: os.userInfo().username,
-        os: {
-            hostname: os.hostname(),
-            platform: os.platform(),
-            release: os.release()
-        }
-    });
+  response.render('index', {
+    username: os.userInfo().username,
+    os: {
+      hostname: os.hostname(),
+      platform: os.platform(),
+      release: os.release(),
+    },
+  });
 });
 
 const conf = config.readConfig();
 
 server.listen(conf.port, conf.host, () => {
-    console.log(`Server has been launched on http://${conf.host}:${conf.port}`);
+  console.log(`Server has been launched on http://${conf.host}:${conf.port}`);
 });
