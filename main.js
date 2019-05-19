@@ -1,21 +1,12 @@
 const express = require('express');
 const os = require('os');
 
-const config = require('./config');
+const config = require('./config').server;
 
 const server = express();
 
 server.set('view engine', 'ejs');
 
-function requestLogger(request, response, next) {
-  console.log(`
-      URL: ${request.url}
-      Method: ${request.method}
-    `);
-  next();
-}
-
-server.use(requestLogger);
 server.use('/public', express.static('public'));
 
 server.get('/', (request, response) => {
@@ -29,8 +20,6 @@ server.get('/', (request, response) => {
   });
 });
 
-const conf = config.readConfig();
-
-server.listen(conf.port, conf.host, () => {
-  console.log(`Server has been launched on http://${conf.host}:${conf.port}`);
+server.listen(config.port, config.host, () => {
+  console.log(`Server has been launched on http://${config.host}:${config.port}`);
 });

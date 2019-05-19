@@ -1,11 +1,6 @@
-const fs = require('fs');
-
-function readConfig(filename = 'config.json') {
-  const config = JSON.parse(fs.readFileSync(filename));
-
-  return config;
-}
-
 module.exports = {
-  readConfig,
+  server: {
+    host: '127.0.0.1',
+    port: 7788,
+  },
 };
