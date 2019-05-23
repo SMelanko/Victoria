@@ -14,4 +14,4 @@
 1. [Performance profiling (Clinic.js Doctor)](https://clinicjs.org)
 
 ## Useful Links:
-- [Organize project structure](https://stackoverflow.com/a/30549313)
+- Organize project structure: [1](https://stackoverflow.com/a/30549313), [2](https://bitbucket.org/dg92/task_mangement_final_quadrant/src/master/)

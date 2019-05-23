@@ -15,7 +15,7 @@ router.get('/', (request, response) => {
 });
 
 router.all('*', (request, response) => {
-  response.status(404).send({ msg: 'not found' });
+  response.status(404).send({ msg: 'Not found' });
 });
 
 module.exports = router;
