@@ -25,6 +25,7 @@
   "homepage": "https://github.com/SMelanko/Victoria#readme",
   "dependencies": {
     "ejs": "^2.6.1",
+    "esm": "^3.2.25",
     "express": "^4.17.0"
   },
   "devDependencies": {
