@@ -3,7 +3,7 @@ const nodemon = require('gulp-nodemon');
 
 gulp.task('default', () => {
   nodemon({
-    script: 'main.js',
+    script: 'app.js',
     args: [],
     nodeArgs: ['-r', 'esm'],
     ext: 'js,ejs',
