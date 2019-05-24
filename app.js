@@ -1,15 +1,21 @@
-import express from 'express';
+import config from './src/config/server';
+import Server from './src/server';
 
-import { server as config } from './config';
+class Application {
+  constructor() {
+    this.server = new Server(config);
+  }
 
-const server = express();
+  exec() {
+    this.server.run();
+  }
+}
 
-server.set('view engine', 'ejs');
-
-server.use('/api', require('./api/routes'));
-
-server.use('/public', express.static('public'));
-
-server.listen(config.port, config.host, () => {
-  console.log(`Server has been launched on http://${config.host}:${config.port}/api`);
-});
+(function main() {
+  try {
+    const app = new Application();
+    app.exec();
+  } catch (error) {
+    console.error(error);
+  }
+}());

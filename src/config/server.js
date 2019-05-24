@@ -4,5 +4,5 @@ const server = {
 };
 
 export {
-  server
+  server as default,
 };
